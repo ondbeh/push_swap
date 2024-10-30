@@ -1,3 +1,9 @@
+# IDE files
+.idea/
+
+# Executables
+push_swap
+
 # Prerequisites
 *.d
 
