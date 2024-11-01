@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strtol.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obehavka <obehavka@student.42.fr>          +#+  +:+       +#+        */
+/*   By: obehavka <obehavka@student.42heilbronn.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/10 08:23:29 by obehavka          #+#    #+#             */
-/*   Updated: 2024/10/19 12:32:53 by obehavka         ###   ########.fr       */
+/*   Created: 2024/11/01 11:11:27 by obehavka          #+#    #+#             */
+/*   Updated: 2024/11/01 11:12:48 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int	ft_atoi(const char *str)
+long	ft_strtol(char *str, char **endptr)
 {
-	int	ret_int;
-	int	is_positive;
-	int	digit;
+	long	ret_int;
+	int		is_positive;
+	int		digit;
 
 	is_positive = 1;
 	ret_int = 0;
-	while (ft_iswhitespace (*str))
+	while (ft_iswhitespace(*str))
 		++str;
 	if (*str == '+' || *str == '-')
 	{
@@ -35,5 +35,6 @@ int	ft_atoi(const char *str)
 		ret_int -= digit;
 		++str;
 	}
+	*endptr = str;
 	return (ret_int * is_positive * (-1));
 }

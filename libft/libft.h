@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 09:40:33 by obehavka          #+#    #+#             */
-/*   Updated: 2024/10/19 15:19:01 by obehavka         ###   ########.fr       */
+/*   Updated: 2024/11/01 12:27:34 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int		ft_isdigit(int ch);
 int		ft_isalnum(int ch);
 int		ft_isascii(int ch);
 int		ft_isprint(int ch);
+int		ft_iswhitespace(char c);
 int		ft_strlen(const char *str);
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
@@ -54,6 +55,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(const char *s, char c);
 char	*ft_itoa(int n);
+long	ft_strtol(char *str, char **endptr);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 void	ft_putchar_fd(char c, int fd);
