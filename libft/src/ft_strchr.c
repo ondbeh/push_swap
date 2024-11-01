@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obehavka <obehavka@student.42heilbronn.d>  +#+  +:+       +#+        */
+/*   By: obehavka <obehavka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/30 16:51:46 by obehavka          #+#    #+#             */
-/*   Updated: 2024/10/30 17:34:25 by obehavka         ###   ########.fr       */
+/*   Created: 2024/10/09 17:10:23 by obehavka          #+#    #+#             */
+/*   Updated: 2024/10/19 12:31:53 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../libft.h"
 
-# include <stdio.h>
-# include "libft/libft.h"
+char	*ft_strchr(const char *s, int c)
+{
+	char	ch;
 
-#endif
+	ch = (char) c;
+	while (*s)
+	{
+		if (*s == ch)
+			return ((char *) s);
+		++s;
+	}
+	if (*s == ch)
+		return ((char *) s);
+	return (NULL);
+}

@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obehavka <obehavka@student.42heilbronn.d>  +#+  +:+       +#+        */
+/*   By: obehavka <obehavka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/30 16:51:46 by obehavka          #+#    #+#             */
-/*   Updated: 2024/10/30 17:34:25 by obehavka         ###   ########.fr       */
+/*   Created: 2024/10/08 11:03:43 by obehavka          #+#    #+#             */
+/*   Updated: 2024/10/09 15:37:12 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+int	ft_strlen(const char *str)
+{
+	int	strlen;
 
-# include <stdio.h>
-# include "libft/libft.h"
-
-#endif
+	strlen = 0;
+	while (*str != '\0')
+	{
+		++strlen;
+		++str;
+	}
+	return (strlen);
+}

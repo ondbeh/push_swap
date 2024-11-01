@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obehavka <obehavka@student.42heilbronn.d>  +#+  +:+       +#+        */
+/*   By: obehavka <obehavka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/30 16:51:46 by obehavka          #+#    #+#             */
-/*   Updated: 2024/10/30 17:34:25 by obehavka         ###   ########.fr       */
+/*   Created: 2024/10/09 12:44:39 by obehavka          #+#    #+#             */
+/*   Updated: 2024/10/19 12:32:57 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../libft.h"
 
-# include <stdio.h>
-# include "libft/libft.h"
+void	ft_bzero(void *s, size_t n)
+{
+	unsigned char	*str;
 
-#endif
+	str = (unsigned char *) s;
+	while (n--)
+	{
+		*str = '\0';
+		++str;
+	}
+}

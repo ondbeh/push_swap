@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obehavka <obehavka@student.42heilbronn.d>  +#+  +:+       +#+        */
+/*   By: obehavka <obehavka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/30 16:51:46 by obehavka          #+#    #+#             */
-/*   Updated: 2024/10/30 17:34:25 by obehavka         ###   ########.fr       */
+/*   Created: 2024/10/10 14:38:11 by obehavka          #+#    #+#             */
+/*   Updated: 2024/10/19 12:32:01 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../libft.h"
 
-# include <stdio.h>
-# include "libft/libft.h"
-
-#endif
+void	ft_putendl_fd(char *s, int fd)
+{
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
+}

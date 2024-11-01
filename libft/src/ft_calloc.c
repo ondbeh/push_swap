@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obehavka <obehavka@student.42heilbronn.d>  +#+  +:+       +#+        */
+/*   By: obehavka <obehavka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/30 16:51:46 by obehavka          #+#    #+#             */
-/*   Updated: 2024/10/30 17:34:25 by obehavka         ###   ########.fr       */
+/*   Created: 2024/10/10 08:40:30 by obehavka          #+#    #+#             */
+/*   Updated: 2024/10/19 12:32:55 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../libft.h"
 
-# include <stdio.h>
-# include "libft/libft.h"
+void	*ft_calloc(size_t num, size_t size)
+{
+	void	*return_ptr;
 
-#endif
+	return_ptr = malloc (num * size);
+	if (return_ptr)
+		ft_memset(return_ptr, 0, num * size);
+	return (return_ptr);
+}
