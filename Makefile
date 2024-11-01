@@ -9,7 +9,8 @@ SRC_DIR		=	src
 OBJ_DIR		=	obj
 
 # Files
-SRCS		=	push_swap.c error_handler.c parse_input.c
+SRCS		=	push_swap.c error_handler.c parse_input.c pushes.c rotations.c reverse_rotations.c swaps.c \
+
 SRCS		:=	$(addprefix $(SRC_DIR)/, $(SRCS))
 OBJS		=	$(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
