@@ -1,17 +1,17 @@
-NAME = push_swap
+NAME		=	push_swap
 
 # Commands
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -I.
+CC			=	cc
+CFLAGS		=	-Wall -Wextra -Werror -I.
 
 # Directories
-SRC_DIR = src
-OBJ_DIR = obj
+SRC_DIR		=	src
+OBJ_DIR		=	obj
 
 # Files
-SRCS = push_swap.c
-SRCS := $(addprefix $(SRC_DIR)/, $(SRCS))
-OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+SRCS		=	push_swap.c error_handler.c parse_input.c
+SRCS		:=	$(addprefix $(SRC_DIR)/, $(SRCS))
+OBJS		=	$(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 LIBFT_DIR	=	libft
 LIBFT		=	$(LIBFT_DIR)/libft.a
@@ -21,7 +21,7 @@ LIBFT_FLAGS	=	-L$(LIBFT_DIR) -lft
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJS)
+$(NAME): $(OBJS) $(LIBFT)
 	@echo "Linking $(NAME)..."
 	@$(CC) $(CFLAGS) $(LIBFT_FLAGS) -o $@ $^
 

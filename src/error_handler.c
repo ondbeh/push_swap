@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   error_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obehavka <obehavka@student.42heilbronn.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/30 16:49:22 by obehavka          #+#    #+#             */
-/*   Updated: 2024/11/01 12:49:19 by obehavka         ###   ########.fr       */
+/*   Created: 2024/11/01 10:06:35 by obehavka          #+#    #+#             */
+/*   Updated: 2024/11/01 10:15:39 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int main(int argc, char **argv)
+void	error_handler(char *error_message, t_list **stack_a, t_list **stack_b)
 {
-	t_list	*stack_a;
-//	t_list	*stack_b;
-//
-//	stack_b = NULL;
-	stack_a = parse_input(argc, argv);
-	while(stack_a)
-	{
-		printf("%d\n", *(int *)stack_a->content);
-		stack_a = stack_a->next;
-	}
-	return (0);
+	if (stack_a)
+		ft_lstclear(stack_a, free);
+	if (stack_b)
+		ft_lstclear(stack_b, free);
+	ft_putstr_fd(error_message, 2);
+	exit(1);
 }
