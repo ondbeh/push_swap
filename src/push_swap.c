@@ -15,10 +15,11 @@
 int main(int argc, char **argv)
 {
 	t_list	*stack_a;
-//	t_list	*stack_b;
-//
-//	stack_b = NULL;
+	t_list	*stack_b;
+
+	stack_b = NULL;
 	stack_a = parse_input(argc, argv);
+	solve_push_swap(&stack_a, &stack_b);
 	while(stack_a)
 	{
 		printf("%d\n", *(int *)stack_a->content);

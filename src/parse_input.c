@@ -6,15 +6,11 @@
 /*   By: obehavka <obehavka@student.42heilbronn.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 10:39:21 by obehavka          #+#    #+#             */
-/*   Updated: 2024/11/01 13:17:07 by obehavka         ###   ########.fr       */
+/*   Updated: 2024/11/01 17:45:35 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-#include <limits.h>
-#include <ctype.h>
-
 
 static int	check_duplicates(t_list *stack_a)
 {
