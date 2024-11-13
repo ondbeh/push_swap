@@ -1,8 +1,12 @@
 # IDE files
 .idea/
+.run/
 
 # Executables
 push_swap
+
+# Output files
+output
 
 # Prerequisites
 *.d
