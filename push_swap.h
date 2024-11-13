@@ -18,6 +18,13 @@
 # include <ctype.h>
 # include "libft/libft.h"
 
+typedef struct s_push
+{
+	int	index;
+	int	rotations_left;
+	int	rotations_right;
+}	t_push;
+
 void	error_handler(char *error_message, t_list **stack_a, t_list **stack_b);
 t_list	*parse_input(int argc, char **argv);
 void	sa(t_list **stack_a, int print_flag);
@@ -36,5 +43,18 @@ int		is_sorted(t_list *stack);
 void	small_sort(t_list **stack_a);
 void	big_sort(t_list **stack_a, t_list **stack_b);
 void	push_back_to_a(t_list **stack_a, t_list **stack_b);
+void	assign_push(t_push *push, int index, int rot_left, int rot_right);
+int		push_cost(t_push push);
+int		max(int a, int b);
+int		abs(int a);
+int		get_exact_index(const int value, t_list *stack);
+int		get_desc_index(const int value, t_list *stack);
+int		get_asc_index(const int value, t_list *stack);
+
+t_push	find_cheapest_push(t_list *stack_a, t_list *stack_b);
+
+// Debug functions
+
+void	print_int(void *content);
 
 #endif

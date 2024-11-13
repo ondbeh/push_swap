@@ -35,7 +35,7 @@ static int	check_duplicates(t_list *stack_a)
 static t_list	*allocate_new_node(int value)
 {
 	t_list	*node;
-	int 	*new_value;
+	int		*new_value;
 
 	new_value = malloc(sizeof(int));
 	if (!new_value)
@@ -49,10 +49,10 @@ static t_list	*allocate_new_node(int value)
 
 static t_list	*parse_argument(char *arg)
 {
-	t_list  *new_node;
-	t_list  *head;
-	long     value;
-	char    *endptr;
+	t_list	*new_node;
+	t_list	*head;
+	long	value;
+	char	*endptr;
 
 	head = NULL;
 	while (*arg)
@@ -60,7 +60,7 @@ static t_list	*parse_argument(char *arg)
 		while (isspace(*arg))
 			arg++;
 		if (*arg == '\0')
-			break;
+			break ;
 		if (!isdigit(*arg) && *arg != '-' && *arg != '+')
 			return (ft_lstclear(&head, free), NULL);
 		value = strtol(arg, &endptr, 10);
@@ -91,6 +91,8 @@ t_list	*parse_input(int argc, char **argv)
 		ft_lstadd_back(&stack_a, new_node);
 		++i;
 	}
+	printf("stack_a:\n");
+	ft_lstiter(stack_a, print_int);
 	if (check_duplicates(stack_a))
 		error_handler("Error\n", &stack_a, NULL);
 	return (stack_a);

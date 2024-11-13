@@ -28,12 +28,12 @@ int	is_sorted(t_list *stack)
 	return (1);
 }
 
-void small_sort(t_list **stack_a)
+void	small_sort(t_list **stack_a)
 {
 	if (is_sorted(*stack_a))
 		return ;
 	if (ft_lstsize(*stack_a) == 2)
-			sa(stack_a, 1);
+		sa(stack_a, 1);
 	else if (ft_lstsize(*stack_a) == 3)
 	{
 		if (*(int *)(*stack_a)->content > *(int *)(*stack_a)->next->content)
@@ -47,6 +47,15 @@ void small_sort(t_list **stack_a)
 	}
 }
 
+void	push_back_to_a(t_list **stack_a, t_list **stack_b)
+{
+	printf("a: \n");
+	ft_lstiter(*stack_a, print_int);
+	printf("b: \n");
+	ft_lstiter(*stack_b, print_int);
+	ft_putendl_fd("-------", 1);
+}
+
 void	solve_push_swap(t_list **stack_a, t_list **stack_b)
 {
 	(void)stack_b;
@@ -56,8 +65,8 @@ void	solve_push_swap(t_list **stack_a, t_list **stack_b)
 	{
 		pb(stack_a, stack_b, 1);
 		pb(stack_a, stack_b, 1);
+		push_back_to_a(stack_a, stack_b);
 		big_sort(stack_a, stack_b);
 		push_back_to_a(stack_a, stack_b);
-		printf("can't solve yet :(\n");
 	}
 }
