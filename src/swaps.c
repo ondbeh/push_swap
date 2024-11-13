@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-void sa(t_list **stack_a, int print_flag)
+void	sa(t_list **stack_a, int print_flag)
 {
 	t_list	*first;
 	t_list	*second;
@@ -27,20 +27,20 @@ void sa(t_list **stack_a, int print_flag)
 	second->next = first;
 	first->next = third;
 	if (print_flag)
-		ft_putendl_fd("sa\n", 1);
+		ft_putendl_fd("sa", 1);
 }
 
-void sb(t_list **stack_b, int print_flag)
+void	sb(t_list **stack_b, int print_flag)
 {
 	sa(stack_b, 0);
 	if (print_flag)
-		ft_putendl_fd("sb\n", 1);
+		ft_putendl_fd("sb", 1);
 }
 
-void ss(t_list **stack_a, t_list **stack_b, int print_flag)
+void	ss(t_list **stack_a, t_list **stack_b, int print_flag)
 {
 	sa(stack_a, 0);
 	sb(stack_b, 0);
 	if (print_flag)
-		ft_putendl_fd("ss\n", 1);
+		ft_putendl_fd("ss", 1);
 }

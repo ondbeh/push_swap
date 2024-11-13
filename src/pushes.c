@@ -23,7 +23,7 @@ void	pa(t_list **stack_a, t_list **stack_b, int print_flag)
 	new_first_a->next = *stack_a;
 	*stack_a = new_first_a;
 	if (print_flag)
-		ft_putendl_fd("pa\n", 1);
+		ft_putendl_fd("pa", 1);
 }
 
 void	pb(t_list **stack_a, t_list **stack_b, int print_flag)
@@ -32,5 +32,5 @@ void	pb(t_list **stack_a, t_list **stack_b, int print_flag)
 		return ;
 	pa(stack_b, stack_a, 0);
 	if (print_flag)
-		ft_putendl_fd("pb\n", 1);
+		ft_putendl_fd("pb", 1);
 }

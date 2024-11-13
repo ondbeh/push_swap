@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-void rra(t_list **stack_a, int print_flag)
+void	rra(t_list **stack_a, int print_flag)
 {
 	t_list	*new_last;
 	t_list	*new_first;
@@ -27,20 +27,20 @@ void rra(t_list **stack_a, int print_flag)
 	*stack_a = new_first;
 	new_last->next = NULL;
 	if (print_flag)
-		ft_putendl_fd("rra\n", 1);
+		ft_putendl_fd("rra", 1);
 }
 
-void rrb(t_list **stack_b, int print_flag)
+void	rrb(t_list **stack_b, int print_flag)
 {
 	rra(stack_b, 0);
 	if (print_flag)
-		ft_putendl_fd("rrb\n", 1);
+		ft_putendl_fd("rrb", 1);
 }
 
-void rrr(t_list **stack_a, t_list **stack_b, int print_flag)
+void	rrr(t_list **stack_a, t_list **stack_b, int print_flag)
 {
 	rra(stack_a, 0);
 	rrb(stack_b, 0);
 	if (print_flag)
-		ft_putendl_fd("rrr\n", 1);
+		ft_putendl_fd("rrr", 1);
 }
