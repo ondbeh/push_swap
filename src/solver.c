@@ -28,6 +28,23 @@ int	is_sorted(t_list *stack)
 	return (1);
 }
 
+static void	rotate_to_start(t_list **stack_a)
+{
+	int	index;
+
+	index = get_asc_index(INT_MIN, *stack_a);
+	if (index > ft_lstsize(*stack_a) / 2)
+	{
+		while (index++ < ft_lstsize(*stack_a))
+			rra(stack_a, 1);
+	}
+	else
+	{
+		while (index-- > 0)
+			ra(stack_a, 1);
+	}
+}
+
 void	small_sort(t_list **stack_a)
 {
 	if (is_sorted(*stack_a))
@@ -47,15 +64,6 @@ void	small_sort(t_list **stack_a)
 	}
 }
 
-void	push_back_to_a(t_list **stack_a, t_list **stack_b)
-{
-	printf("a: \n");
-	ft_lstiter(*stack_a, print_int);
-	printf("b: \n");
-	ft_lstiter(*stack_b, print_int);
-	ft_putendl_fd("-------", 1);
-}
-
 void	solve_push_swap(t_list **stack_a, t_list **stack_b)
 {
 	(void)stack_b;
@@ -65,8 +73,8 @@ void	solve_push_swap(t_list **stack_a, t_list **stack_b)
 	{
 		pb(stack_a, stack_b, 1);
 		pb(stack_a, stack_b, 1);
-		push_back_to_a(stack_a, stack_b);
 		big_sort(stack_a, stack_b);
 		push_back_to_a(stack_a, stack_b);
+		rotate_to_start(stack_a);
 	}
 }

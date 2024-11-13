@@ -12,37 +12,15 @@
 
 #include "../push_swap.h"
 
-void	perform_cheapest_push(t_push cheapest_push, t_list **stack_a, t_list **stack_b)
+int	get_push_type(t_push push)
 {
-	if (cheapest_push.rotations_left >= 0 && cheapest_push.rotations_right >= 0)
-	{
-		while (cheapest_push.rotations_left--)
-			ra(stack_a, 1);
-		while (cheapest_push.rotations_right--)
-			rb(stack_b, 1);
-	}
-	else if (cheapest_push.rotations_left <= 0 && cheapest_push.rotations_right <= 0)
-	{
-		while (cheapest_push.rotations_left++)
-			rra(stack_a, 1);
-		while (cheapest_push.rotations_right++)
-			rrb(stack_b, 1);
-	}
-	else if (cheapest_push.rotations_right >= 0)
-	{
-		while (cheapest_push.rotations_left++)
-			rra(stack_a, 1);
-		while (cheapest_push.rotations_right--)
-			rb(stack_b, 1);
-	}
-	else
-	{
-		while (cheapest_push.rotations_left--)
-			ra(stack_a, 1);
-		while (cheapest_push.rotations_right++)
-			rrb(stack_b, 1);
-	}
-	pb(stack_a, stack_b, 1);
+	if (push.rotations_left >= 0 && push.rotations_right >= 0)
+		return (ROT_BOTH);
+	if (push.rotations_left <= 0 && push.rotations_right <= 0)
+		return (REV_ROT_BOTH);
+	if (push.rotations_left >= 0 && push.rotations_right <= 0)
+		return (ROT_A_REV_ROT_B);
+	return (REV_ROT_A_ROT_B);
 }
 
 t_push	get_push(const int value, t_list *stack_a, t_list *stack_b)
@@ -54,7 +32,6 @@ t_push	get_push(const int value, t_list *stack_a, t_list *stack_b)
 
 	index_left = get_exact_index(value, stack_a);
 	index_right = get_desc_index(value, stack_b);
-	//printf("value: %d index_left: %d index_right: %d\n", value, index_left, index_right);
 	assign_push(&cheapest_push, index_left, index_left, index_right);
 	assign_push(&current_push, index_left,
 		index_left - ft_lstsize(stack_a), index_right - ft_lstsize(stack_b));
@@ -84,10 +61,6 @@ t_push	find_cheapest_push(t_list *stack_a, t_list *stack_b)
 		current_push = get_push(*(int *)current->content, stack_a, stack_b);
 		if (push_cost(current_push) < push_cost(cheapest_push))
 			cheapest_push = current_push;
-		// printf("current_push: index:%d rot_left:%d rot_right:%d\n",
-		// 	current_push.index, current_push.rotations_left, current_push.rotations_right);
-		// printf("cheapest_push: index:%d rot_left:%d rot_right:%d\n",
-		// 	cheapest_push.index, cheapest_push.rotations_left, cheapest_push.rotations_right);
 		current = current->next;
 	}
 	return (cheapest_push);
@@ -103,8 +76,6 @@ void	big_sort(t_list **stack_a, t_list **stack_b)
 		return ;
 	}
 	cheapest_push = find_cheapest_push(*stack_a, *stack_b);
-	printf("total cheapest_push: index:%d rot_left:%d rot_right:%d\n",
-		cheapest_push.index, cheapest_push.rotations_left, cheapest_push.rotations_right);
-	perform_cheapest_push(cheapest_push, stack_a, stack_b);
+	perform_push(cheapest_push, stack_a, stack_b);
 	big_sort(stack_a, stack_b);
 }

@@ -10,7 +10,8 @@ OBJ_DIR		=	obj
 
 # Files
 SRCS		:=	$(addprefix $(SRC_DIR)/, push_swap.c error_handler.c parse_input.c pushes.c rotations.c \
-				reverse_rotations.c swaps.c big_solve.c solver.c big_solve_utils.c index_finder.c)
+				reverse_rotations.c swaps.c big_solve.c solver.c big_solve_utils.c index_finder.c \
+				perform_push.c push_back.c)
 OBJS		=	$(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 LIBFT_DIR	=	libft
