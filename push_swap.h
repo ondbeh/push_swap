@@ -47,7 +47,6 @@ void	rra(t_list **stack_a, int print_flag);
 void	rrb(t_list **stack_b, int print_flag);
 void	rrr(t_list **stack_a, t_list **stack_b, int print_flag);
 void	solve_push_swap(t_list **stack_a, t_list **stack_b);
-int		is_sorted(t_list *stack);
 void	small_sort(t_list **stack_a);
 void	big_sort(t_list **stack_a, t_list **stack_b);
 void	assign_push(t_push *push, int index, int rot_left, int rot_right);

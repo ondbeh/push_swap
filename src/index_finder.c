@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 10:12:37 by obehavka          #+#    #+#             */
-/*   Updated: 2024/11/13 10:44:57 by obehavka         ###   ########.fr       */
+/*   Updated: 2024/11/13 14:15:32 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	get_desc_index(const int value, t_list *stack)
 		next_value = *(int *)stack->next->content;
 		if ((value < curr_value && value > next_value)
 			|| (curr_value < next_value
-				&& (value < curr_value || value > next_value)))
+				&& (value < curr_value || value >= next_value)))
 			return (index);
 		++index;
 		stack = stack->next;
@@ -69,7 +69,7 @@ int	get_asc_index(const int value, t_list *stack)
 		next_value = *(int *)stack->next->content;
 		if ((value > curr_value && value < next_value)
 			|| (curr_value > next_value
-				&& (value > curr_value || value < next_value)))
+				&& (value > curr_value || value <= next_value)))
 			return (index);
 		++index;
 		stack = stack->next;

@@ -12,20 +12,24 @@
 
 #include "../push_swap.h"
 
-int	is_sorted(t_list *stack)
+static int	is_sorted_asc(t_list *stack)
 {
 	t_list	*current;
+	int		counter;
 
-	if (!stack || ft_lstsize(stack) < 2)
+	if (!stack || ft_lstsize(stack) < 3)
 		return (1);
 	current = stack;
+	counter = 0;
 	while (current->next)
 	{
 		if (*(int *)current->content > *(int *)current->next->content)
-			return (0);
+			++counter;
 		current = current->next;
 	}
-	return (1);
+	if (*(int *)current->content > *(int *)stack->content)
+		++counter;
+	return (counter < 2);
 }
 
 static void	rotate_to_start(t_list **stack_a)
@@ -47,27 +51,17 @@ static void	rotate_to_start(t_list **stack_a)
 
 void	small_sort(t_list **stack_a)
 {
-	if (is_sorted(*stack_a))
+	if (is_sorted_asc(*stack_a))
 		return ;
-	if (ft_lstsize(*stack_a) == 2)
-		sa(stack_a, 1);
-	else if (ft_lstsize(*stack_a) == 3)
-	{
-		if (*(int *)(*stack_a)->content > *(int *)(*stack_a)->next->content)
-			sa(stack_a, 1);
-		ra(stack_a, 1);
-		if (*(int *)(*stack_a)->content > *(int *)(*stack_a)->next->content)
-			sa(stack_a, 1);
-		rra(stack_a, 1);
-		if (*(int *)(*stack_a)->content > *(int *)(*stack_a)->next->content)
-			sa(stack_a, 1);
-	}
+	sa(stack_a, 1);
 }
 
 void	solve_push_swap(t_list **stack_a, t_list **stack_b)
 {
 	(void)stack_b;
-	if (ft_lstsize(*stack_a) <= 3)
+	if (is_sorted_asc(*stack_a))
+		;
+	else if (ft_lstsize(*stack_a) <= 3)
 		small_sort(stack_a);
 	else
 	{
@@ -75,6 +69,6 @@ void	solve_push_swap(t_list **stack_a, t_list **stack_b)
 		pb(stack_a, stack_b, 1);
 		big_sort(stack_a, stack_b);
 		push_back_to_a(stack_a, stack_b);
-		rotate_to_start(stack_a);
 	}
+	rotate_to_start(stack_a);
 }

@@ -20,6 +20,7 @@ long	ft_strtol(char *str, char **endptr)
 
 	is_positive = 1;
 	ret_int = 0;
+	*endptr = str;
 	while (ft_iswhitespace(*str))
 		++str;
 	if (*str == '+' || *str == '-')
@@ -27,6 +28,8 @@ long	ft_strtol(char *str, char **endptr)
 		if (*str == '-')
 			is_positive *= (-1);
 		++str;
+		if (!ft_isdigit(*str))
+			return (0);
 	}
 	while (ft_isdigit (*str))
 	{
@@ -35,6 +38,5 @@ long	ft_strtol(char *str, char **endptr)
 		ret_int -= digit;
 		++str;
 	}
-	*endptr = str;
-	return (ret_int * is_positive * (-1));
+	return (*endptr = str, ret_int * is_positive * (-1));
 }

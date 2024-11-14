@@ -57,13 +57,9 @@ static t_list	*parse_argument(char *arg)
 	head = NULL;
 	while (*arg)
 	{
-		while (isspace(*arg))
-			arg++;
-		if (*arg == '\0')
-			break ;
 		if (!isdigit(*arg) && *arg != '-' && *arg != '+')
 			return (ft_lstclear(&head, free), NULL);
-		value = strtol(arg, &endptr, 10);
+		value = ft_strtol(arg, &endptr);
 		if (arg == endptr || value < (long) INT_MIN || value > (long) INT_MAX)
 			return (ft_lstclear(&head, free), NULL);
 		new_node = allocate_new_node((int) value);
@@ -71,7 +67,12 @@ static t_list	*parse_argument(char *arg)
 			return (ft_lstclear(&head, free), NULL);
 		ft_lstadd_back(&head, new_node);
 		arg = endptr;
+		if (!isspace(*arg))
+			break ;
+		++arg;
 	}
+	if (*arg)
+		return (ft_lstclear(&head, free), NULL);
 	return (head);
 }
 
@@ -91,8 +92,6 @@ t_list	*parse_input(int argc, char **argv)
 		ft_lstadd_back(&stack_a, new_node);
 		++i;
 	}
-	printf("stack_a:\n");
-	ft_lstiter(stack_a, print_int);
 	if (check_duplicates(stack_a))
 		error_handler("Error\n", &stack_a, NULL);
 	return (stack_a);

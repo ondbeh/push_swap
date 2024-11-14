@@ -20,10 +20,6 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	stack_a = parse_input(argc, argv);
 	solve_push_swap(&stack_a, &stack_b);
-	// while (stack_a)
-	// {
-	// 	printf("%d\n", *(int *)stack_a->content);
-	// 	stack_a = stack_a->next;
-	// }
+	ft_lstclear(&stack_a, free);
 	return (0);
 }

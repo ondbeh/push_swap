@@ -6,12 +6,11 @@
 /*   By: obehavka <obehavka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 11:58:58 by obehavka          #+#    #+#             */
-/*   Updated: 2024/11/13 12:13:37 by obehavka         ###   ########.fr       */
+/*   Updated: 2024/11/13 12:16:02 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
 
 void	push_back_to_a(t_list **stack_a, t_list **stack_b)
 {

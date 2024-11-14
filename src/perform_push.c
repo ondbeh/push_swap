@@ -6,7 +6,7 @@
 /*   By: obehavka <obehavka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 11:40:16 by obehavka          #+#    #+#             */
-/*   Updated: 2024/11/13 11:45:57 by obehavka         ###   ########.fr       */
+/*   Updated: 2024/11/14 17:28:28 by obehavka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,10 +95,8 @@ static void	perform_rra_rb(t_push push, t_list **stack_a, t_list **stack_b)
 void	perform_push(t_push push, t_list **stack_a, t_list **stack_b)
 {
 	t_push_type	push_type;
-	int			i;
 
 	push_type = get_push_type(push);
-	i = 0;
 	if (push_type == ROT_BOTH)
 		perform_rr(push, stack_a, stack_b);
 	else if (push_type == REV_ROT_BOTH)
